@@ -1,17 +1,15 @@
 import axios from 'axios'
 
 const dynamicRoutes = () => {
-  return axios
-    .get(`${process.env.dbUrl}/?rest_route=/wp/v2/posts`)
-    .then((res) => {
-      return res.data.map((post) => `/blog/${post.slug}`)
-    })
+  return axios.get(`${process.env.dbUrl}/wp/v2/posts`).then((res) => {
+    return res.data.map((post) => `/blog/${post.slug}`)
+  })
 }
 
 export default {
   mode: 'universal',
   env: {
-    dbUrl: process.env.DB_URL || 'http://localhost:8000'
+    dbUrl: process.env.DB_URL || 'https://www.atomicsmash.co.uk'
   },
   /*
    ** Headers of the page
