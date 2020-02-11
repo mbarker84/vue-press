@@ -1,7 +1,9 @@
 <template>
   <div class="posts">
-    <main>
-      <h2>Posts</h2>
+    <main class="p-4">
+      <header>
+        <h2 class="font-bold">Posts</h2>
+      </header>
       <!-- here we loop through the posts -->
       <div class="post" v-for="post in posts" :key="post.id">
         <h3>

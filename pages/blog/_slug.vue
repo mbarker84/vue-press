@@ -1,7 +1,9 @@
 <template>
-  <main class="post individual">
-    <h1>{{ post.title.rendered }}</h1>
-    <section v-html="post.content.rendered"></section>
+  <main class="post individual p-4">
+    <!-- <header>
+      <h1 class="font-bold">{{ post.title.rendered }}</h1>
+    </header>
+    <section v-html="post.content.rendered"></section> -->
   </main>
 </template>
 
