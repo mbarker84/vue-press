@@ -1,27 +1,36 @@
 <template>
   <div class="posts">
-    <main class="p-4">
-      <header>
-        <h2 class="font-bold">Posts</h2>
-      </header>
-      <!-- here we loop through the posts -->
-      <div class="post" v-for="post in posts" :key="post.id">
-        <h3>
-          <!-- for each one of them, we’ll render their title, and link off to their individual page -->
-          <a :href="`blog/${post.slug}`">{{ post.title.rendered }}</a>
-        </h3>
-        <div v-html="post.excerpt.rendered"></div>
-        <a :href="`blog/${post.slug}`" class="readmore">Read more ⟶</a>
-      </div>
-    </main>
+    <header>
+      <h1 class="font-bold text-white mb-4 text-xl lg:text-6xl">
+        {{ name }}
+      </h1>
+    </header>
+    <!-- here we loop through the posts -->
+    <div class="g-posts-grid">
+      <post-preview
+        v-for="post in posts"
+        :key="post.id"
+        v-bind:title="post.title.rendered"
+        v-bind:excerpt="post.excerpt.rendered"
+        v-bind:slug="`blog/${post.slug}`"
+      ></post-preview>
+    </div>
   </div>
 </template>
 
 <script>
+import PostPreview from '../components/PostPreview'
+
 export default {
+  components: {
+    PostPreview
+  },
   computed: {
     posts() {
       return this.$store.state.posts
+    },
+    name() {
+      return this.$store.state.info.name
     }
   },
   created() {
