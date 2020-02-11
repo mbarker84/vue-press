@@ -1,0 +1,9 @@
+body {
+  @apply .bg-gray-900 flex .flex-col;
+
+  min-height: 100vh;
+
+  @screen md {
+    font-size: 1.1rem;
+  }
+}

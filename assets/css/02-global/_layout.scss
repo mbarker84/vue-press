@@ -1,0 +1,28 @@
+@responsive {
+  .container {
+    @apply mx-auto px-4;
+
+    max-width: 80rem;
+
+    @screen md {
+      @apply px-8;
+    }
+  }
+}
+
+.g-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 1rem;
+
+  @screen lg {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3rem;
+  }
+}
+
+.g-post-content {
+  @apply mx-auto;
+
+  max-width: 75ch;
+}

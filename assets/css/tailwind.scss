@@ -3,3 +3,12 @@
 @tailwind components;
 
 @tailwind utilities;
+
+/*! purge start ignore */
+
+@import './01-base/base';
+@import './02-global/layout';
+
+@import './03-components/post-preview';
+
+/*! purge end ignore */
