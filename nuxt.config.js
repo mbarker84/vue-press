@@ -1,5 +1,18 @@
+import axios from 'axios'
+
+const dynamicRoutes = () => {
+  return axios
+    .get(`${process.env.dbUrl}/?rest_route=/wp/v2/posts`)
+    .then((res) => {
+      return res.data.map((post) => `/blog/${post.slug}`)
+    })
+}
+
 export default {
   mode: 'universal',
+  env: {
+    dbUrl: process.env.DB_URL || 'http://localhost:8000'
+  },
   /*
    ** Headers of the page
    */
@@ -46,6 +59,9 @@ export default {
   /*
    ** Build configuration
    */
+  generate: {
+    routes: dynamicRoutes
+  },
   build: {
     /*
      ** You can extend webpack config here
