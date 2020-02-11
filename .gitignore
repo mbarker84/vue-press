@@ -91,15 +91,8 @@ sw.*
 
 # WordPress stuff #
 ###################
-public/wp
-public/wp-content/plugins
-public/wp-content/languages
-public/wp-content/upgrade/
-public/wp-content/backup-db/
-public/wp-content/advanced-cache.php
-public/wp-content/wp-cache-config.php
-public/wp-content/cache/
-public/wp-content/backups/
+public
+public/*
 sitemap.xml
 sitemap.xml.gz
 readme.html
@@ -110,13 +103,13 @@ active-config.php
 
 # Wordpress Media Files #
 #########################
-public/wp-content/blogs.dir
-public/wp-content/uploads/201*
-public/wp-content/uploads/placeholders/site-placeholder-*
-public/wp-content/uploads/sucuri
-public/wp-content/uploads/placeholders
-public/wp-content/uploads/backups
-public/wp-content/uploads/gravity_forms
-public/wp-content/uploads/wc-logs
-public/wp-content/uploads/woocommerce_uploads
-public/wp-content/uploads/
+# public/wp-content/blogs.dir
+# public/wp-content/uploads/201*
+# public/wp-content/uploads/placeholders/site-placeholder-*
+# public/wp-content/uploads/sucuri
+# public/wp-content/uploads/placeholders
+# public/wp-content/uploads/backups
+# public/wp-content/uploads/gravity_forms
+# public/wp-content/uploads/wc-logs
+# public/wp-content/uploads/woocommerce_uploads
+# public/wp-content/uploads/
