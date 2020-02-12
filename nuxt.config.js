@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const dynamicRoutes = () => {
   return axios
-    .get('https://www.atomicsmash.co.uk/wp-json/wp/v2/posts?page=1&per_page=20')
+    .get('https://css-tricks.com/wp-json/wp/v2/posts?page=1&per_page=20')
     .then((res) => {
       return res.data.map((post) => `/blog/${post.slug}`)
     })
@@ -37,7 +37,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/getPostTags.js'],
   /*
    ** Nuxt.js dev-modules
    */
