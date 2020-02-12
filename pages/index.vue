@@ -3,7 +3,7 @@
     <header>
       <h1 class="font-bold text-white mb-4 text-xl lg:text-6xl">{{ name }}</h1>
       <h3 class="font-bold text-white text-lg md:text-2xl mb-4">Filter by category</h3>
-      <tags :tags="tags" />
+      <tags :tags="tags" :show-all="true" />
     </header>
     <!-- here we loop through the posts -->
     <div class="g-posts-grid">

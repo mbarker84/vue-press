@@ -3,19 +3,11 @@
     <header>
       <h1
         class="font-bold text-center mb-4 text-xl leading-tight md:mb-8 lg:text-6xl"
-      >
-        {{ postTitle() }}
-      </h1>
+      >{{ postTitle() }}</h1>
     </header>
-    <section
-      class="g-post-content"
-      v-if="postContent()"
-      v-html="postContent()"
-    ></section>
+    <section class="g-post-content" v-if="postContent()" v-html="postContent()"></section>
     <div class="mt-4 lg:mt-8 text-center">
-      <a :href="`${postLink()}`" class="underline text-pink-700"
-        >Read it on the website ⟶</a
-      >
+      <a :href="`${postLink()}`" class="underline text-pink-700">Read it on the website ⟶</a>
     </div>
   </main>
 </template>
@@ -42,7 +34,7 @@ export default {
       return this.post ? this.post.title.rendered : 'loading...'
     },
     postContent() {
-      return this.post ? this.post.excerpt.rendered : ''
+      return this.post ? this.post.content.rendered : ''
     },
     postLink() {
       return this.post ? this.post.link : ''
