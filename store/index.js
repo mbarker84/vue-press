@@ -17,7 +17,7 @@ export const actions = {
     if (state.posts.length) return
     try {
       let posts = await fetch(
-        'https://css-tricks.com/wp-json/wp/v2/posts?page=1&per_page=20'
+        'https://www.atomicsmash.co.uk/wp-json/wp/v2/posts?page=1&per_page=20'
       ).then((res) => res.json())
       posts = posts
         .filter((el) => el.status === 'publish')
