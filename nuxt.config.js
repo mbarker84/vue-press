@@ -1,5 +1,6 @@
 import axios from 'axios'
-import pages from './store/pages'
+// import pages from './store/pages'
+import data from './static/storedata.json'
 
 const dynamicRoutes = () => {
   return axios
@@ -10,7 +11,7 @@ const dynamicRoutes = () => {
 }
 
 const pageRoutes = () => {
-  return pages.map((page) => `/site/${page.slug}`)
+  return data.map((page) => `/site/${page.slug}`)
 }
 
 export default {
@@ -42,7 +43,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/getPostTags.js', '~/plugins/getPages.js'],
+  plugins: ['~/plugins/getPostTags.js'],
   /*
    ** Nuxt.js dev-modules
    */

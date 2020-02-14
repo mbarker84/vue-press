@@ -1,9 +1,9 @@
-import pages from './pages'
+import data from '~/static/storedata.json'
 
 export const state = () => ({
+  storedata: data,
   posts: [],
   tags: [],
-  pages: [],
   selectedTag: null,
   info: {
     name: 'Atomic News',
@@ -18,10 +18,6 @@ export const mutations = {
 
   updateTags: (state, tags) => {
     state.tags = tags
-  },
-
-  updatePages: (state, pages) => {
-    state.pages = pages
   },
 
   updateSelectedTag(state, tag) {
@@ -73,10 +69,6 @@ export const actions = {
     } catch (e) {
       console.log(e)
     }
-  },
-
-  getPages({ commit }) {
-    commit('updatePages', pages)
   },
 
   selectTag({ commit }, tag) {

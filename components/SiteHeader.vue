@@ -23,7 +23,7 @@
 export default {
   computed: {
     pages() {
-      return this.$store.state.pages
+      return this.$store.state.storedata
     }
   },
 
@@ -31,10 +31,6 @@ export default {
     resetFilters() {
       this.$store.dispatch('selectTag', null)
     }
-  },
-
-  created() {
-    this.$store.dispatch('getPages')
   }
 }
 </script>

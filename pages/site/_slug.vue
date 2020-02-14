@@ -2,13 +2,12 @@
   <main class="text-white">
     <page-header :title="title" :body="intro" />
     <h1 class="text-white"></h1>
-    <div v-if="body" class="c-page-body">
-      <p>{{ body }}</p>
-    </div>
+    <div v-if="body" class="c-page-body">{{ body }}</div>
   </main>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import PageHeader from '../../components/PageHeader'
 
 export default {
@@ -23,12 +22,10 @@ export default {
   },
 
   computed: {
-    pages() {
-      return this.$store.state.pages
-    },
+    ...mapState(['storedata']),
 
     page() {
-      return this.pages.find((el) => el.slug === this.slug)
+      return this.storedata.find((el) => el.slug === this.slug)
     },
 
     intro() {
