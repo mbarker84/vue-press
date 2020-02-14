@@ -6,7 +6,13 @@
       <tags :tags="tags" :show-all="true" />
     </header>
     <!-- here we loop through the posts -->
-    <div class="g-posts-grid">
+    <transition-group
+      class="g-posts-grid"
+      name="posts"
+      tag="div"
+      mode="out-in"
+      v-on:before-leave="beforeLeave"
+    >
       <post-preview
         v-for="post in sortedPosts"
         :key="post.id"
@@ -15,7 +21,7 @@
         :slug="`blog/${post.slug}`"
         :tags="postTags(post.tags)"
       ></post-preview>
-    </div>
+    </transition-group>
   </div>
 </template>
 
@@ -61,9 +67,54 @@ export default {
 
     selectedTag() {
       return this.$store.state.selectedTag
+    },
+
+    getItemWidth(el) {
+      return getComputedStyle(el).width
+    },
+
+    beforeLeave(el) {
+      el.style.width = this.getItemWidth(el)
+      el.style.position = 'absolute'
     }
   },
 
   created() {}
 }
 </script>
+<style>
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 500ms cubic-bezier(0.26, 0.07, 0.3, 0.98),
+    transform 500ms cubic-bezier(0.26, 0.07, 0.3, 0.98);
+}
+
+.page-enter,
+.page-leave-to {
+  transform: translateY(1rem);
+  opacity: 0;
+}
+
+.posts-item {
+  display: block;
+}
+
+.posts-enter-active {
+  transition: opacity 300ms 300ms, transform 300ms 300ms;
+}
+
+.posts-leave-active {
+  position: absolute;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.posts-enter,
+.posts-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.posts-move {
+  transition: transform 1s;
+}
+</style>

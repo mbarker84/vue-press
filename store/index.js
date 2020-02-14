@@ -18,11 +18,6 @@ export const mutations = {
   },
 
   updateSelectedTag(state, tag) {
-    // if (!state.selectedTag) {
-    //   state.selectedTag = tag
-    // } else {
-    //   state.selectedTag = null
-    // }
     state.selectedTag = tag
   }
 }

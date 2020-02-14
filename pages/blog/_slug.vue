@@ -1,13 +1,15 @@
 <template>
-  <main class="post individual p-4">
-    <header>
+  <main class="post individual p-4 lg:p-8">
+    <header class="text-white">
       <h1
         class="font-bold text-center mb-4 text-xl leading-tight md:mb-8 lg:text-6xl"
       >{{ postTitle() }}</h1>
     </header>
-    <section class="g-post-content" v-if="postContent()" v-html="postContent()"></section>
-    <div class="mt-4 lg:mt-8 text-center">
-      <a :href="`${postLink()}`" class="underline text-pink-700">Read it on the website ⟶</a>
+    <div class="g-post-content bg-white p-4 md:p-8">
+      <section v-if="postContent()" v-html="postContent()"></section>
+      <div class="mt-4 lg:mt-8 text-center">
+        <a :href="`${postLink()}`" class="underline text-pink-700">Read it on the website ⟶</a>
+      </div>
     </div>
   </main>
 </template>
@@ -19,7 +21,6 @@ export default {
       slug: this.$route.params.slug
     }
   },
-  layout: 'post',
   computed: {
     posts() {
       return this.$store.state.posts

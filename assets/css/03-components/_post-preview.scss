@@ -1,24 +1,13 @@
-.c-post-preview {
-  @screen lg {
-    &:nth-child(4n),
-    &:nth-child(4n - 3) {
-      @apply .bg-pink-500;
-    }
+.c-post-preview__bg {
+  transition: background-color 300ms, color 300ms;
+}
 
-    &:nth-child(4n - 1) {
-      @apply .bg-orange-400;
-    }
-
-    &:nth-child(8n - 1) {
-      @apply .bg-indigo-400;
-    }
-
-    &:nth-child(4n - 2) {
-      grid-column: span 2;
-    }
-
-    &:nth-child(4n - 1) {
-      grid-column: span 2;
-    }
+.c-post-preview__absolute-link:hover {
+  + .c-post-preview__bg {
+    @apply .bg-teal-700 text-white;
   }
+}
+
+.c-post-preview {
+  transition: opacity 300ms;
 }
