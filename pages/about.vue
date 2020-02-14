@@ -6,7 +6,7 @@
       <p>
         <a
           href="https://www.smashingmagazine.com/2020/02/headless-wordpress-site-jamstack/"
-          class="text-pink-400 hover:text-teal-500 focus:text-teal-500 font-bold underline inline-block lg:mt-4"
+          class="text-teal-400 hover:text-pink-400 focus:text-teal-400 font-bold underline inline-block lg:mt-4"
         >Read Sarah and Geoff’s article ⟶</a>
       </p>
     </div>
