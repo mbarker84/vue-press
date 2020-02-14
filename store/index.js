@@ -1,6 +1,9 @@
+import pages from './pages'
+
 export const state = () => ({
   posts: [],
   tags: [],
+  pages: [],
   selectedTag: null,
   info: {
     name: 'Atomic News',
@@ -15,6 +18,10 @@ export const mutations = {
 
   updateTags: (state, tags) => {
     state.tags = tags
+  },
+
+  updatePages: (state, pages) => {
+    state.pages = pages
   },
 
   updateSelectedTag(state, tag) {
@@ -66,6 +73,10 @@ export const actions = {
     } catch (e) {
       console.log(e)
     }
+  },
+
+  getPages({ commit }) {
+    commit('updatePages', pages)
   },
 
   selectTag({ commit }, tag) {

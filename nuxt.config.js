@@ -1,11 +1,29 @@
 import axios from 'axios'
+import pages from './store/pages'
 
 const dynamicRoutes = () => {
   return axios
     .get('https://css-tricks.com/wp-json/wp/v2/posts?page=1&per_page=20')
     .then((res) => {
-      return res.data.map((post) => `/blog/${post.slug}`)
+      return [...res.data.map((post) => `/blog/${post.slug}`), ...pageRoutes]
     })
+}
+
+// const pages = [
+//   {
+//     title: 'Meet the team',
+//     intro: 'The people who make Atomic Smash what it is',
+//     slug: 'meet-the-team'
+//   },
+//   {
+//     title: 'Our services',
+//     intro: 'We provide the following digital services',
+//     slug: 'our-services'
+//   }
+// ]
+
+const pageRoutes = () => {
+  return pages.map((page) => `site/${page.slug}`)
 }
 
 export default {
@@ -37,7 +55,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/getPostTags.js'],
+  plugins: ['~/plugins/getPostTags.js', '~/plugins/getPages.js'],
   /*
    ** Nuxt.js dev-modules
    */
