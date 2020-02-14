@@ -19,7 +19,7 @@
           :class="[selected && tag.id === selected.id ? activeClass : inactiveClass]"
         >
           <a
-            class="px-2 py-1 block cursor-pointer hover:bg-purple-700 focus:bg-purple-700"
+            class="c-tags__link px-2 py-1 block cursor-pointer hover:bg-purple-700 focus:bg-purple-700"
           >{{ tag.name }}</a>
         </li>
       </ul>

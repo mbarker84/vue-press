@@ -1,7 +1,7 @@
 <template>
   <div class="pt-12">
     <site-header />
-    <main class="container lg:py-8">
+    <main class="container py-4 lg:py-8">
       <nuxt />
     </main>
   </div>

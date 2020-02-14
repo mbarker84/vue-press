@@ -1,0 +1,9 @@
+.c-page-body {
+  > * + * {
+    @apply mt-4;
+  }
+
+  p {
+    max-width: 75ch;
+  }
+}

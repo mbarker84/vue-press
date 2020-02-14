@@ -10,7 +10,7 @@
         <nuxt-link v-bind:to="slug">{{ title }}</nuxt-link>
       </h3>
       <div class="mb-4" v-html="excerpt"></div>
-      <tags :tags="tags" />
+      <tags :tags="tags" class="c-post-preview__tags relative z-10" />
       <nuxt-link v-bind:to="slug" class="underline font-bold">Read more ⟶</nuxt-link>
     </div>
   </article>

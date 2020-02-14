@@ -1,10 +1,8 @@
 <template>
   <div class="posts">
-    <header>
-      <h1 class="font-bold text-white mb-4 text-xl lg:text-6xl">{{ name }}</h1>
-      <h3 class="font-bold text-white text-lg md:text-2xl mb-4">Filter by category</h3>
-      <tags :tags="tags" :show-all="true" />
-    </header>
+    <page-header title="Atomic News" :body="body" />
+    <h3 class="font-bold text-white text-lg md:text-2xl mb-4">Filter by category</h3>
+    <tags :tags="tags" :show-all="true" />
     <!-- here we loop through the posts -->
     <transition-group
       class="g-posts-grid"
@@ -28,12 +26,21 @@
 <script>
 import PostPreview from '../components/PostPreview'
 import Tags from '../components/Tags'
+import PageHeader from '../components/PageHeader'
 
 export default {
+  data() {
+    return {
+      body: 'Do you like the JAMstack? We do.'
+    }
+  },
+
   components: {
     PostPreview,
-    Tags
+    Tags,
+    PageHeader
   },
+
   computed: {
     posts() {
       return this.$store.state.posts
@@ -85,8 +92,8 @@ export default {
 <style>
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 500ms cubic-bezier(0.26, 0.07, 0.3, 0.98),
-    transform 500ms cubic-bezier(0.26, 0.07, 0.3, 0.98);
+  transition: opacity 400ms cubic-bezier(0.26, 0.07, 0.3, 0.98),
+    transform 400ms cubic-bezier(0.26, 0.07, 0.3, 0.98);
 }
 
 .page-enter,
@@ -111,7 +118,7 @@ export default {
 .posts-enter,
 .posts-leave-to {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(1rem);
 }
 
 .posts-move {
